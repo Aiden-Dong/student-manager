@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"> 
+    <!--css-->
+    <link rel="stylesheet" th:href="@{/render/bootstrap-4.4.1/css/bootstrap.min.css}" href="../../render/bootstrap-4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/render/server/css/class-board.css}" href="../../render/server/css/class-board.css">
+    
+    <!--js-->
+    <script type="text/javascript" th:src="@{/render/echarts/js/echarts.min.js}" src="../../render/echarts/js/echarts.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/echarts/js/china.js}" src="../../render/echarts/js/china.js"></script>
+    <script type="text/javascript" th:src="@{/render/tools/js/jquery-3.4.1.min.js}" src="../../render/tools/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/server/json/city.js}" src="../../render/server/json/city.js"></script>
+    <script type="text/javascript" th:src="@{/render/server/js/base-util.js}" src="../../render/server/js/base-util.js"></script>
+    <script type="text/javascript" th:src="@{/render/server/js/class-board.js}" src="../../render/server/js/class-board.js"></script>
+</head>
+<body>
+    <div class="left-header-div" id="student-num-container"></div>
+    <div class="right-header-div" id="st-cls-container"></div>
+    <div class="green-row" id="city-container">
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col box-sm" id='st-cls-v-container'></div>
+            <div class="col box-sm" id='st-political-container'></div>
+            <div class="col box-sm" id='st-age-container'></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+    <link rel="stylesheet" th:href="@{/render/bootstrap-4.4.1/css/bootstrap.min.css}"
+        href="../../render/bootstrap-4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/render/gijgo-1.9.13/css/gijgo.min.css}"
+        href="../../render/gijgo-1.9.13/css/gijgo.min.css">
+
+    <script type="text/javascript" th:src="@{/render/tools/js/jquery-3.4.1.min.js}"
+        src="../../render/tools/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/bootstrap-4.4.1/js/popper.min.js}"
+        src="../../render/bootstrap-4.4.1/js/popper.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/bootstrap-4.4.1/js/bootstrap.min.js}"
+        src="../../render/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/gijgo-1.9.13/js/gijgo.min.js}"
+        src="../../render/gijgo-1.9.13/js/gijgo.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/gijgo-1.9.13/js/messages/messages.zh-cn.min.js}"
+        src="../../render/gijgo-1.9.13/js/messages/messages.zh-cn.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/server/js/base-util.js}" src="../../render/server/js/base-util.js">
+    </script>
+    <script type="text/javascript" th:src="@{/render/server/js/class-manager.js}"
+        src="../../render/server/js/class-manager.js"></script>
+
+</header>
+
+<body>
+    <div class="container">
+        <div class="jumbotron bg-light">
+            <div class="row">
+                <div class="col-9">
+                    <h1 class="font-weight-bold">班级信息<span class="text-primary">管理</span></h1>
+                    <p class="lead text-secondary">積極學習，推己及人，感恩校園.</p>
+                    <hr class="my-4">
+                    <p class="text-secondary">维护统一班级信息,信息化管理与量化.实现教育体制现代化.</p>
+                    <button class="btn btn-primary btn-lg float-right" id="new-class-btn" data-toggle="modal"
+                        data-target="#new-class-container">添加</button>
+                </div>
+                <div class="col-3">
+                    <svg t="1583155511777" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="29973" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="200" height="200">
+                        <defs>
+                            <style type="text/css"></style>
+                        </defs>
+                        <path
+                            d="M856.596627 451.418331a410.2358 410.2358 0 0 1-410.2358 410.2358C219.712411 861.726381 36.125026 612.030198 36.125026 451.418331a410.2358 410.2358 0 1 1 820.543851 0z"
+                            fill="#E9EAEB" p-id="29974"></path>
+                        <path
+                            d="M825.673605 768.812813h30.995272v201.288648h-30.995272zM500.548367 768.812813h30.995272v201.288648h-30.995272z"
+                            fill="#2A5082" p-id="29975"></path>
+                        <path d="M361.178015 226.937416h603.793692v495.418613H361.178015z" fill="#FFFFFF" p-id="29976">
+                        </path>
+                        <path
+                            d="M980.433218 737.88979H345.716503V598.519438h30.923023v108.37508h572.870669V242.398928H376.639526v185.827136h-30.923023v-216.750159h634.716715v526.413885z"
+                            fill="#2A5082" p-id="29977"></path>
+                        <path
+                            d="M198.615395 424.469061c39.882029 0 69.649051-32.657024 69.649051-72.900304V327.29274c0-40.243279-29.767022-72.900303-69.649051-72.900304s-69.649051 32.657024-69.649051 72.900304v24.276017c0 40.243279 29.983772 72.900303 69.649051 72.900304z"
+                            fill="#FFFFFF" p-id="29978"></path>
+                        <path
+                            d="M198.615395 439.930572a85.905313 85.905313 0 0 1-85.110562-88.361815V327.29274a85.182812 85.182812 0 1 1 170.293375 0v24.276017a85.905313 85.905313 0 0 1-85.182813 88.361815z m0-170.076624A55.27129 55.27129 0 0 0 144.500106 327.29274v24.276017a55.27129 55.27129 0 0 0 54.18754 57.366543 55.27129 55.27129 0 0 0 54.187539-57.366543V327.29274a55.27129 55.27129 0 0 0-54.25979-57.438792z"
+                            fill="#2A5082" p-id="29979"></path>
+                        <path
+                            d="M516.009878 474.682848H159.889367C86.700064 474.682848 36.125026 498.091865 36.125026 567.524166v139.370352a63.218796 63.218796 0 0 0 61.918296 61.918295h201.216397v-216.750159H438.557821c46.745784 0 77.452057-43.061032 77.452057-77.379806z"
+                            fill="#A3D4FF" p-id="29980"></path>
+                        <path
+                            d="M314.721231 784.274324h-216.750159A78.463557 78.463557 0 0 1 20.591265 706.894518V567.524166c0-72.250053 46.890284-108.375079 139.370352-108.37508h371.509772v15.533762c0 43.928032-38.148028 92.913568-92.913568 92.913568H314.721231zM159.889367 490.144359c-96.02032 0-108.375079 41.39928-108.375079 77.379807v139.370352a47.685035 47.685035 0 0 0 46.456784 46.456784h185.827136v-216.750159H438.557821a63.941297 63.941297 0 0 0 59.461794-46.456784z"
+                            fill="#2A5082" p-id="29981"></path>
+                        <path d="M113.504833 567.524166h185.754886v418.038806H113.504833z" fill="#A3D4FF" p-id="29982">
+                        </path>
+                        <path
+                            d="M283.798208 567.524166h30.995273v418.038806h-30.995273zM190.88464 737.88979h30.995273v247.745432h-30.995273zM97.971072 567.524166h30.995272v418.038806h-30.995272zM539.202145 660.437734H423.09631v-30.923023h100.644324l46.456784-61.990545h91.829817l92.913568-154.759614h61.918295l46.456784-77.452056h39.737529v30.995272h-22.180766l-46.456784 77.379807h-61.918295L679.583998 598.519438h-93.925069l-46.456784 61.918296zM469.553094 954.639949h92.913568v30.995273H469.553094zM794.678332 954.639949h92.913568v30.995273h-92.913568z"
+                            fill="#2A5082" p-id="29983"></path>
+                        <path d="M330.254992 149.55761h665.711987v108.375079H330.254992z" fill="#E9EAEB" p-id="29984">
+                        </path>
+                        <path
+                            d="M1011.500741 273.3942H314.721231V134.096098H1011.500741z m-665.784238-30.923022h634.716715V165.019121H345.716503z"
+                            fill="#2A5082" p-id="29985"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-4">
+                <svg class="bi bi-bootstrap-fill text-secondary" width="50px" height="50px" viewBox="0 0 20 20"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M6.002 2a4 4 0 00-4 4v8a4 4 0 004 4h8a4 4 0 004-4V6a4 4 0 00-4-4h-8zm1.06 12h3.475c1.804 0 2.888-.908 2.888-2.396 0-1.102-.761-1.916-1.904-2.034v-.1c.832-.14 1.482-.93 1.482-1.816 0-1.3-.955-2.11-2.543-2.11H7.063V14zm1.313-4.875V6.658h1.78c.974 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H8.375zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H8.375v2.725z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div style="margin-top: 20px;">
+                    <h5 class="card-title">信息量化</h5>
+                    <p class="card-text">尽量用量化的数据、指标反映班级信息，学生信息的一种表现形式。信息量化可以更为科学准确的多维度管理分析班级与学生情况。</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <svg class="bi bi-grid-fill text-secondary" width="50px" height="50px" viewBox="0 0 20 20"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="6" height="6" x="3.5" y="10.5" rx="1" />
+                    <rect width="6" height="6" x="10.5" y="10.5" rx="1" />
+                    <rect width="6" height="6" x="10.5" y="3.5" rx="1" />
+                    <rect width="6" height="6" x="3.5" y="3.5" rx="1" />
+                </svg>
+                <div style="margin-top: 20px;">
+                    <h5 class="card-title">班级管理</h5>
+                    <p class="card-text">以班级为整体对学生进行管理与分析，维度指标更加有参考分析价值.</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <svg class="bi bi-people-fill text-secondary" width="50px" height="50px" viewBox="0 0 20 20"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M9 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H9zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 017 15c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 007 11c-4 0-5 3-5 4s1 1 1 1h4.216zM6.5 10a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div style="margin-top: 20px;">
+                    <h5 class="card-title">细节分析</h5>
+                    <p class="card-text">细节分析反映学生与班级的细粒度信息，便于精确管理与分析.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <small>班级数量:</small>
+                        <p th:text="${classes.size()}">20</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <small>学生数量:</small>
+                        <p th:text="${stuSize}">2000</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="3000"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="table-responsive" style="height: 200px;">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">班号</th>
+                                <th scope="col">班级名称</th>
+                                <th scope="col">成立时间</th>
+                                <th scope="col">负责人</th>
+                                <th scope="col">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="class : ${classes}">
+                                <th scope="row" th:text="${class.clsId}"></th>
+                                <td th:clsId="${class.clsId}" th:text="${class.clsName}"></td>
+                                <td th:clsId="${class.clsId}" th:text="${#dates.format(class.clsCreateTime, 'yyyy-MM-dd')}"></td>
+                                <td th:clsId="${class.clsId}" th:text="${class.clsManager}"></td>
+                                <td>
+                                    <button type="button" th:clsId="${class.clsId}" class="btn btn-light text-success class-message-btn">详情</button>
+                                    <button type="button" th:clsId="${class.clsId}" class="btn btn-light text-danger del-class-btn">删除</button>  
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加班级弹出框  -->
+    <div class="modal fade" id="new-class-container" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">添加新的班级信息</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label>班级名称</label>
+                        <input type="text" class="form-control" placeholder="Class Name" aria-label="Class Name" id="class-name-input" aria-describedby="Class Name">
+                        <small id="emailHelp" class="form-text text-muted">新的班级名称(例如 : 七年级一班)</small>
+                    </div>
+                    <div class="form-group">
+                        <label>班级负责人</label>
+                        <input type="text" class="form-control" placeholder="Class Owner" aria-label="Class Owner" id="class-owner-input" aria-describedby="Class Owner">
+                        <small id="emailHelp" class="form-text text-muted">新的班级负责人名称(例如 : 赵祥和)</small>
+                    </div>
+                    <div class="form-group">
+                        <label>班级创建日期</label>
+                        <input type="text" class="form-control" placeholder="Class Create Time" aria-label="Class Create Time" id="class-ctime-input" aria-describedby="Class Create Time">
+                    </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="submit-newcls-bth">提交</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- info 信息 -->
+    <div class="toast" id="info-msg-container" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 10px; left: 50%;">
+        <div class="toast-header">
+            <svg class="bi bi-alert-circle text-success" width="20px" height="20px" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8.998 3a1 1 0 112 0 1 1 0 01-2 0zM10 6a.905.905 0 00-.9.995l.35 3.507a.553.553 0 001.1 0l.35-3.507A.905.905 0 0010 6z" clip-rule="evenodd"/>
+            </svg>
+            <strong class="mr-auto" style="margin-left: 3px;">Info</strong>
+            <small class="text-muted"></small>
+        </div>
+        <div class="toast-body" id="info-container"></div>
+    </div>
+
+    <!-- error 信息 -->
+    <div class="toast" id="error-msg-container" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 10px; left: 50%;">
+        <div class="toast-header">
+            <svg class="bi bi-alert-circle text-danger" width="20px" height="20px" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8.998 3a1 1 0 112 0 1 1 0 01-2 0zM10 6a.905.905 0 00-.9.995l.35 3.507a.553.553 0 001.1 0l.35-3.507A.905.905 0 0010 6z" clip-rule="evenodd"/>
+            </svg>
+            <strong class="mr-auto" style="margin-left: 3px;">Error</strong>
+            <small class="text-muted"></small>
+        </div>
+        <div class="toast-body" id="error-container"></div>
+    </div>
+        
+</body>
+
+</html>

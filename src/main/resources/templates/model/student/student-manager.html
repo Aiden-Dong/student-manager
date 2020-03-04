@@ -1,0 +1,208 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+    <link rel="stylesheet" th:href="@{/render/bootstrap-4.4.1/css/bootstrap.min.css}"
+        href="../../render/bootstrap-4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/render/gijgo-1.9.13/css/gijgo.min.css}"
+        href="../../render/gijgo-1.9.13/css/gijgo.min.css">
+
+    <script type="text/javascript" th:src="@{/render/tools/js/jquery-3.4.1.min.js}"
+        src="../../render/tools/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/bootstrap-4.4.1/js/popper.min.js}"
+        src="../../render/bootstrap-4.4.1/js/popper.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/bootstrap-4.4.1/js/bootstrap.min.js}"
+        src="../../render/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/gijgo-1.9.13/js/gijgo.min.js}"
+        src="../../render/gijgo-1.9.13/js/gijgo.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/gijgo-1.9.13/js/messages/messages.zh-cn.min.js}"
+        src="../../render/gijgo-1.9.13/js/messages/messages.zh-cn.min.js"></script>
+    <script type="text/javascript" th:src="@{/render/server/js/base-util.js}" src="../../render/server/js/base-util.js">
+    </script>
+    <script type="text/javascript" th:src="@{/render/server/js/student-manager.js}"
+        src="../../render/server/js/student-manager.js"></script>
+</header>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">班级</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <svg class="bi bi-house text-primary" width="25px" height="25px" viewBox="0 0 20 20"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M9.646 3.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5h-4.5a.5.5 0 01-.5-.5v-4H9v4a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM4.5 9.707V16H8v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V9.707l-5.5-5.5-5.5 5.5z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M15 4.5V8l-2-2V4.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
+                            th:text="${classOrganize.clsName}">八年级3班</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col">
+                <div class="card" style="height: 200px;">
+                    <div class="card-body row">
+                        <div class="col" style="text-align: center;">
+                            <svg class="bi bi-people-fill text-primary" width="50px" height="50px" viewBox="0 0 20 20"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M9 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H9zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 017 15c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 007 11c-4 0-5 3-5 4s1 1 1 1h4.216zM6.5 10a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <hr>
+                            <h4 class="font-weight-bold" th:text="${classOrganize.clsName}">八年级3班</h4>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-secondary " style="margin-top: 20px;">
+                                班主任 <span class="badge badge-light text-primary"
+                                    th:text="${classOrganize.clsManager}">李照明</span>
+                                <span class="sr-only">unread messages</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" style="margin-top: 20px;">
+                                班级人数 <span class="badge badge-light text-primary" th:text="${students.size()}">9</span>
+                                <span class="sr-only">unread messages</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="height: 200px;">
+                    <div class="card-body">
+                        <h6>班级成立时间 : <code class="text-primary" th:text="${#dates.format(classOrganize.clsCreateTime, 'yyyy-MM-dd')}">2017-10-10</code></h6>
+                        <small>普通班级学制为4年学制, 学制完成后班级将被解散.下面为班级的当前的学习完成进度</small>
+                        <p></p>
+                        <p>班级进度</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">学生信息管理</h5>
+                        <p class="card-text text-secondary">管理学生基本详细信息, 维护学生信息的统一与准确性。更加方便直观的维护更新信息</p>
+                        <button class="btn btn-primary" id="new-student-btn" data-toggle="modal" data-target="#new-student-container">录入成员</button>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 40px;">
+                <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">学号</th><th scope="col">姓名</th><th scope="col">性别</th><th scope="col">年龄</th><th scope="col">城市</th><th scope="col">政治面貌</th><th scope="col">操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr th:each="student : ${students}" th:clsId="${classOrganize.clsId}">
+                            <td scope="row" th:text="${student.stId}"></td>
+                            <td th:stId="${student.stId}" th:text="${student.stName}"></td>
+                            <td th:stId="${student.stId}" th:text="${student.stSex}"></td>
+                            <td th:stId="${student.stId}" th:stTime="${student.stStartTime}" th:text="${new java.util.Date().getYear() - new java.util.Date(student.stStartTime).getYear()}"></td>
+                            <td th:stId="${student.stId}" th:text="${student.stCity}"></td>
+                            <td>
+                                <span class="stu-political-select-span" th:text="${student.stPolitical}">群众</span>
+                                <select class="custom-select stu-political-select"  th:stId="${student.stId}" style="display: none;">
+                                    <option value="群众" th:selected="${student.stPolitical == '群众'}" >群众</option>
+                                    <option value="共青团员" th:selected="${student.stPolitical == '共青团员'}">共青团员</option>
+                                    <option value="党员" th:selected="${student.stPolitical == '党员'}">党员</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-light text-danger del-student-btn" th:stId="${student.stId}">删除</button>  
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+        </div>
+    </div>
+
+    <!-- 添加学生弹出框  -->
+    <div class="modal fade" id="new-student-container" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">添加新的学生信息</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label>姓名</label>
+                            <input type="text" class="form-control" placeholder="Student Name" aria-label="Student Name" id="student-name-input" aria-describedby="Student Name">
+                            <small class="form-text text-muted">新学生名称(例如 : 赵祥和)</small>
+                        </div>
+                        <div class="form-group">
+                            <label>性别</label>
+                            <input type="text" class="form-control" placeholder="Student Sex" aria-label="Student Sex" id="student-sex-input" aria-describedby="Student Sex">
+                            <small class="form-text text-muted">学生性别(男/女)</small>
+                        </div>
+                        <div class="form-group">
+                            <label>出生日期</label>
+                            <input type="text" class="form-control" placeholder="Student Birthday" aria-label="Student Birthday" id="student-stime-input" aria-describedby="Class Create Time">
+                        </div>
+                        <div class="form-group">
+                            <label>城市</label>
+                            <input type="text" class="form-control" placeholder="Student City" aria-label="Student City" id="student-city-input" aria-describedby="Student Sex">
+                            <small class="form-text text-muted">生源所在地</small>
+                        </div>
+                        <div class="form-group">
+                            <label>政治面貌</label>
+                            <select class="custom-select" id="student-political-input" aria-label="Student Political">
+                                <option value="群众">群众</option>
+                                <option value="共青团员">共青团员</option>
+                                <option value="党员">党员</option>
+                              </select>
+                            <!-- <input type="text" class="form-control" placeholder="Student Political" aria-label="Student Political" id="student-political-input" aria-describedby="Student Political"> -->
+                            <small class="form-text text-muted">生源所在地(群众，共青团员， 党员)</small>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" th:clsId="${classOrganize.clsId}" id="submit-newst-bth">提交</button>
+                </div>
+              </div>
+            </div>
+    </div>
+
+    <!-- info 信息 -->
+    <div class="toast messages-box" id="info-msg-container" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 10px; left: 50%;">
+            <div class="toast-header">
+                <svg class="bi bi-alert-circle text-success" width="20px" height="20px" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8.998 3a1 1 0 112 0 1 1 0 01-2 0zM10 6a.905.905 0 00-.9.995l.35 3.507a.553.553 0 001.1 0l.35-3.507A.905.905 0 0010 6z" clip-rule="evenodd"/>
+                </svg>
+                <strong class="mr-auto" style="margin-left: 3px;">Info</strong>
+                <small class="text-muted"></small>
+            </div>
+            <div class="toast-body" id="info-container"></div>
+    </div>
+    
+    <!-- error 信息 -->
+    <div class="toast" id="error-msg-container" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 10px; left: 50%;">
+        <div class="toast-header">
+            <svg class="bi bi-alert-circle text-danger" width="20px" height="20px" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8.998 3a1 1 0 112 0 1 1 0 01-2 0zM10 6a.905.905 0 00-.9.995l.35 3.507a.553.553 0 001.1 0l.35-3.507A.905.905 0 0010 6z" clip-rule="evenodd"/>
+            </svg>
+            <strong class="mr-auto" style="margin-left: 3px;">Error</strong>
+            <small class="text-muted"></small>
+        </div>
+        <div class="toast-body" id="error-container"></div>
+    </div>
+</body>
+</html>

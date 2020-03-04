@@ -1,0 +1,81 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" style="height: 100%;">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="ting.chen">
+
+  <title>学生管理系统</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" th:href="@{/render/bootstrap-4.4.1/css/bootstrap.min.css}" href="../../render/bootstrap-4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/render/server/css/dashboard.css}" href="../../render/server/css/dashboard.css">
+
+  <!--js-->
+  <script th:src="@{/render/tools/js/jquery-3.4.1.min.js}" src="../../render/tools/js/jquery-3.4.1.min.js"></script>
+  <script th:src="@{/render/bootstrap-4.4.1/js/bootstrap.min.js}" src="../../render/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+  <script th:src="@{/render/bootstrap-4.4.1/js/feather.min.js}" src="../../render/bootstrap-4.4.1/js/feather.min.js"></script>
+  <!-- <script th:src="@{/js/tools/Chart.min.js}" src="../../render/js/tools/Chart.min.js"></script> -->
+  <script th:src="@{/render/server/js/dashboard.js}" src="../../render/server/js/dashboard.js"></script>
+</head>
+
+<body style="height: 100%;">
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" >学生信息管理系统</a>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="#">Sign out</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid" style="height: 100%;">
+    <div class="row" style="height: 100%;">
+      <nav class="col-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>报表展示</span>
+            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle"></span>
+            </a>
+          </h6>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="class-board-btn">
+                <span data-feather="home"></span>
+                信息展示
+              </a>
+            </li>
+          </ul>
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>学生管理</span>
+            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle"></span>
+            </a>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="class-manager-btn">
+                <span data-feather="file"></span>
+                班级明细
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#" id="student-manager-btn">
+                <span data-feather="file-text"></span>
+                学生明细
+              </a>
+            </li> -->
+          </ul>
+
+        </div>
+      </nav>
+      <main role="main" class="col-10 ml-sm-auto col-lg-10 px-4" style="height: 100%;">
+        <iframe style="height: 100%;width: 100%;" frameborder="0" id="container-frame" ></iframe>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

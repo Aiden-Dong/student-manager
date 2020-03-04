@@ -1,0 +1,26 @@
+# server
+server.port : 80
+
+#typemeleaf
+spring.thymeleaf.prefix : classpath:/model/
+spring.thymeleaf.check-template-location : true
+spring.thymeleaf.suffix : .html
+spring.thymeleaf.encoding : UTF-8
+spring.thymeleaf.content-type : text/html
+spring.thymeleaf.mode : HTML5
+spring.thymeleaf.cache : false
+
+# dao
+spring.datasource.url : jdbc:h2:mem:student-manger;MODE=MYSQL
+spring.datasource.username : root
+spring.datasource.password : root
+spring.datasource.schema : classpath:student-manager.sql
+spring.datasource.type : org.apache.commons.dbcp2.BasicDataSource
+
+# info
+logging.level.root : info
+logging.file  : logs/student-manager.log
+
+#auther
+web.access.name : admin
+web.access.password : manager

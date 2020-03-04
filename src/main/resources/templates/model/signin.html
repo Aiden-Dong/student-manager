@@ -1,0 +1,61 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="chen ting">
+  <title>学生管理系统</title>
+
+
+  <!-- <link rel="icon" th:href="@{/icon/manager.svg}" href="../render/icon/manager.svg"> -->
+  <!--css-->
+  <link rel="stylesheet" th:href="@{/render/bootstrap-4.4.1/css/bootstrap.min.css}" href="../render/bootstrap-4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/render/server/css/signin.css}" href="../render/server/css/signin.css">
+
+  <script th:src="@{/render/tools/js/jquery-3.4.1.min.js}" src="../render/tools/js/jquery-3.4.1.min.js"></script>
+  <script th:src="@{/render/bootstrap-4.4.1/js/bootstrap.min.js}" src="../render/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+  <script th:src="@{/render/bootstrap-4.4.1/js/popper.min.js}" src="../render/bootstrap-4.4.1/js/popper.min.js"></script>
+  <script th:src="@{/render/server/js/base-util.js}" src="../render/server/js/base-util.js"></script>
+  <script th:src="@{/render/server/js/signin.js}" src="../render/server/js/signin.js"></script>
+</head>
+
+<body class="text-center">
+  <div class="form-signin">
+    <img class="mb-4" th:src="@{/render/server/icon/manager.svg}" src="../render/server/icon/manager.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">登录 <span class="text-primary">认证</span></h1>
+    <label for="inputEmail" class="sr-only">用户名</label>
+    <input type="email" id="input-username" class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">密码</label>
+    <input type="password" id="input-password" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-primary btn-block" id="signin-submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+  </div>
+
+  <!-- info 信息 -->
+  <div class="toast" id="info-msg-container" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 10px; left: 50%;">
+    <div class="toast-header">
+        <svg class="bi bi-alert-circle text-success" width="20px" height="20px" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8.998 3a1 1 0 112 0 1 1 0 01-2 0zM10 6a.905.905 0 00-.9.995l.35 3.507a.553.553 0 001.1 0l.35-3.507A.905.905 0 0010 6z" clip-rule="evenodd"/>
+        </svg>
+        <strong class="mr-auto" style="margin-left: 3px;">Info</strong>
+        <small class="text-muted"></small>
+    </div>
+    <div class="toast-body" id="info-container"></div>
+</div>
+
+<!-- error 信息 -->
+<div class="toast" id="error-msg-container" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 10px; left: 50%;">
+    <div class="toast-header">
+        <svg class="bi bi-alert-circle text-danger" width="20px" height="20px" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8.998 3a1 1 0 112 0 1 1 0 01-2 0zM10 6a.905.905 0 00-.9.995l.35 3.507a.553.553 0 001.1 0l.35-3.507A.905.905 0 0010 6z" clip-rule="evenodd"/>
+        </svg>
+        <strong class="mr-auto" style="margin-left: 3px;">Error</strong>
+        <small class="text-muted"></small>
+    </div>
+    <div class="toast-body" id="error-container"></div>
+</div>
+</body>
+
+</html>
